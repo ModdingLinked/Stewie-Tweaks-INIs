@@ -8,6 +8,7 @@ on:
     paths:
       - 'Stewie Tweaks - VNV INI/nvse/plugins/nvse_stewie_tweaks.ini'
       - 'Stewie Tweaks - VNV Extended INI/nvse/plugins/nvse_stewie_tweaks.ini'
+  workflow_dispatch:
 
 jobs:
   release_vnv_ini:
