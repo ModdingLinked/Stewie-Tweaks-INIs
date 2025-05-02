@@ -1,4 +1,4 @@
-name: Auto Release for Both Tweaks
+name: Release both INIs
 
 permissions:
   contents: write
