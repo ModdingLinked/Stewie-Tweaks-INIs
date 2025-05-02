@@ -1,0 +1,46 @@
+name: Auto Release for Both Tweaks
+
+on:
+  push:
+    paths:
+      - 'Stewie Tweaks - VNV INI/nvse/plugins/nvse_stewie_tweaks.ini'
+      - 'Stewie Tweaks - VNV Extended INI/nvse/plugins/nvse_stewie_tweaks.ini'
+
+jobs:
+  release_vnv_ini:
+    if: contains(github.event.head_commit.message, 'Stewie Tweaks - VNV INI')
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Zip Stewie Tweaks - VNV INI
+      run: zip -r "Stewie Tweaks - VNV INI.zip" "Stewie Tweaks - VNV INI"
+
+    - name: Create GitHub Release for VNV INI
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ github.run_id }}
+        name: Stewie Tweaks - VNV INI - ${{ github.event.head_commit.timestamp }}
+        files: "Stewie Tweaks - VNV INI.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+  release_vnv_extended_ini:
+    if: contains(github.event.head_commit.message, 'Stewie Tweaks - VNV Extended INI')
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Zip Stewie Tweaks - VNV Extended INI
+      run: zip -r "Stewie Tweaks - VNV Extended INI.zip" "Stewie Tweaks - VNV Extended INI"
+
+    - name: Create GitHub Release for VNV Extended INI
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ github.run_id }}
+        name: Stewie Tweaks - VNV Extended INI - ${{ github.event.head_commit.timestamp }}
+        files: "Stewie Tweaks - VNV Extended INI.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
