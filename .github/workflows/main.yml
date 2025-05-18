@@ -22,14 +22,14 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y p7zip-full
 
     - name: Compress Stewie Tweaks - VNV INI
-      run: 7z a "Stewie Tweaks - VNV INI.7z" "Stewie Tweaks - VNV INI"
+      run: 7z a "Stewie_Tweaks-VNV_INI.7z" "Stewie Tweaks - VNV INI"
 
     - name: Create GitHub Release for VNV INI
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ github.run_id }}
         name: Stewie Tweaks - VNV INI - ${{ github.event.head_commit.timestamp }}
-        files: "Stewie Tweaks - VNV INI.7z"
+        files: "Stewie_Tweaks-VNV_INI.7z"
         token: ${{ secrets.GITHUB_TOKEN }}
 
   release_vnv_extended_ini:
@@ -43,12 +43,12 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y p7zip-full
 
     - name: Compress Stewie Tweaks - VNV Extended INI
-      run: 7z a "Stewie Tweaks - VNV Extended INI.7z" "Stewie Tweaks - VNV Extended INI"
+      run: 7z a "Stewie_Tweaks-VNV_Extended_INI.7z" "Stewie Tweaks - VNV Extended INI"
 
     - name: Create GitHub Release for VNV Extended INI
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ github.run_id }}
         name: Stewie Tweaks - VNV Extended INI - ${{ github.event.head_commit.timestamp }}
-        files: "Stewie Tweaks - VNV Extended INI.7z"
+        files: "Stewie_Tweaks-VNV_Extended_INI.7z"
         token: ${{ secrets.GITHUB_TOKEN }}
